@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff4e8b, #ff9a9e);
+    overflow: hidden;
+}
+
+/* Floating Hearts Background */
+.hearts::before,
+.hearts::after {
+    content: "💖 💕 💗 💘 💝 💞";
+    position: absolute;
+    width: 100%;
+    font-size: 40px;
+    opacity: 0.1;
+    animation: float 20s linear infinite;
+}
+
+.hearts::after {
+    animation-duration: 30s;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-100vh); }
+}
+
+/* Card */
+.card {
+    width: 420px;
+    padding: 45px 35px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+    color: white;
+    position: relative;
+    transition: 0.4s ease;
+}
+
+.card h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.card p {
+    font-size: 15px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.buttons {
+    position: relative;
+    height: 60px;
+}
+
+.btn {
+    padding: 12px 35px;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    position: absolute;
+}
+
+.yes-btn {
+    left: 25%;
+    background: white;
+    color: #ff4e8b;
+}
+
+.yes-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 10px 25px rgba(255,255,255,0.4);
+}
+
+.no-btn {
+    right: 25%;
+    background: rgba(255,255,255,0.3);
+    color: white;
+}
+
+.message {
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: 600;
+    display: none;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media(max-width: 480px) {
+    .card {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    .yes-btn { left: 15%; }
+    .no-btn { right: 15%; }
+}
